@@ -1,5 +1,5 @@
 import { push } from "connected-react-router";
-import { Action, createActions, handleAction } from "redux-actions";
+import { Action, createActions, handleActions } from "redux-actions";
 import { call, put, select, takeEvery } from "redux-saga/effects";
 import TokenService from "../../services/TokenService";
 import UserService from "../../services/UserService";
@@ -20,7 +20,7 @@ export const { pending, success, fail } = createActions(
   { prefix }
 );
 
-const reducer = handleAction<AuthState, string>(
+const reducer = handleActions<AuthState, string>(
   {
     PENDING: (state) => ({
       ...state,
@@ -55,7 +55,7 @@ function* loginSaga(action: Action<LoginReqType>) {
     yield put(success(token));
     yield put(push("/"));
   } catch (error) {
-    yield put(fail(new Error(error?.response.data?.error || "UNKNOWN_ERROR")));
+    yield put(fail(new Error(error?.response?.data?.error || "UNKNOWN_ERROR")));
   }
 }
 

@@ -11,7 +11,7 @@ import Error from "./pages/Error";
 import { ConnectedRouter } from "connected-react-router";
 import history from "./history";
 
-function App() {
+const App = () => {
   return (
     <ErrorBoundary FallbackComponent={Error}>
       <ConnectedRouter history={history}>
@@ -26,6 +26,6 @@ function App() {
       </ConnectedRouter>
     </ErrorBoundary>
   );
-}
+};
 
 export default App;
