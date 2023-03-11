@@ -28,7 +28,7 @@ const Signin: React.FC<SigninProps> = ({ login }) => {
               Please Note Your Opinion
             </div>
             <div className={styles.signin_underline} />
-            <div className={styles.emil_title}>
+            <div className={styles.email_title}>
               Email
               <span className={styles.required}> *</span>
             </div>
